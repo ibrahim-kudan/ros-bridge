@@ -13,7 +13,7 @@ import math
 import os
 
 import numpy
-from carla import VehicleControl
+from carla import VehicleControl,TrafficLightState
 
 from ros_compatibility.qos import QoSProfile, DurabilityPolicy
 
@@ -186,6 +186,11 @@ class EgoVehicle(Vehicle):
         :return:
         """
         self.send_vehicle_msgs(frame, timestamp)
+        if self.carla_actor.is_at_traffic_light():
+            traffic_light = self.carla_actor.get_traffic_light()
+            if traffic_light.get_state() == TrafficLightState.Red:
+            # world.hud.notification("Traffic light changed! Good to go!")
+                traffic_light.set_state(TrafficLightState.Green)
         super(EgoVehicle, self).update(frame, timestamp)
 
     def destroy(self):

@@ -441,6 +441,10 @@ def main(args=None):
                     carla_world = carla_client.load_world(parameters["town"])
             carla_world.tick()
 
+        tm = carla_client.get_trafficmanager()
+        tm.global_percentage_speed_difference(-20)
+
+        
         carla_bridge.initialize_bridge(carla_client.get_world(), parameters)
 
         carla_bridge.spin()
