@@ -4,6 +4,7 @@
   <arg name='host' default='localhost'/>
   <arg name='port' default='2000'/>
   <arg name='timeout' default='10'/>
+  <arg name='speed_limit_percent' default='-50'/>
 
   <!-- Ego vehicle -->
   <arg name='role_name' default='ego_vehicle'/>
@@ -11,14 +12,14 @@
   <arg name="spawn_point" default=""/><!-- use comma separated format "x,y,z,roll,pitch,yaw" -->
 
   <!-- Map to load on startup (either a predefined CARLA town (e.g. 'Town01'), or a OpenDRIVE map file) -->
-  <arg name="town" default=''/>
+  <arg name="town" default='Town10HD'/>
 
   <!-- Enable/disable passive mode -->
   <arg name='passive' default=''/>
 
   <!-- Synchronous mode-->
   <arg name='synchronous_mode_wait_for_vehicle_control_command' default='False'/>
-  <arg name='fixed_delta_seconds' default='0.05'/>
+  <arg name='fixed_delta_seconds' default='0.02'/>
 
 
   <include file="$(find carla_ros_bridge)/launch/carla_ros_bridge.launch">
@@ -26,6 +27,7 @@
     <arg name='port' value='$(arg port)'/>
     <arg name='town' value='$(arg town)'/>
     <arg name='timeout' value='$(arg timeout)'/>
+    <arg name='speed_limit_percent' value='$(arg speed_limit_percent)'/>
     <arg name='passive' value='$(arg passive)'/>
     <arg name='synchronous_mode_wait_for_vehicle_control_command' value='$(arg synchronous_mode_wait_for_vehicle_control_command)'/>
     <arg name='fixed_delta_seconds' value='$(arg fixed_delta_seconds)'/>

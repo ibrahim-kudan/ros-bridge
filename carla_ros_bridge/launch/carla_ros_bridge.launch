@@ -27,6 +27,9 @@
   -->
   <arg name='ego_vehicle_role_name' default='["hero", "ego_vehicle", "hero0", "hero1", "hero2", "hero3", "hero4", "hero5", "hero6", "hero7", "hero8", "hero9"]'/>
       
+  <!-- Kudan Args -->
+  <arg name='speed_limit_percent' default='-20'/>
+
   <node pkg="carla_ros_bridge" name="carla_ros_bridge" type="bridge.py" output="screen" required="true">
     <param name="host" value="$(arg host)" unless="$(eval host == '')"/>
     <param name="port" value="$(arg port)" unless="$(eval port == '')"/>
@@ -38,5 +41,6 @@
     <param name="register_all_sensors" value="$(arg register_all_sensors)"/>
     <param name="town" value="$(arg town)"/>
     <param name="ego_vehicle_role_name" value="$(arg ego_vehicle_role_name)"/>
+    <param name="speed_limit_percent" value="$(arg speed_limit_percent)"/>
   </node>
 </launch>

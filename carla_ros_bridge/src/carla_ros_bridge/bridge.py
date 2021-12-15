@@ -441,8 +441,10 @@ def main(args=None):
                     carla_world = carla_client.load_world(parameters["town"])
             carla_world.tick()
 
+        speed_limit_prc = carla_bridge.get_param('speed_limit_percent', -20)
+        carla_bridge.loginfo("Setting speed limit percent to {}".format(speed_limit_prc))
         tm = carla_client.get_trafficmanager()
-        tm.global_percentage_speed_difference(-20)
+        tm.global_percentage_speed_difference(speed_limit_prc)
 
         
         carla_bridge.initialize_bridge(carla_client.get_world(), parameters)
