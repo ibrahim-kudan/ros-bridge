@@ -1,3 +1,8 @@
+# Changes 
+
+- [x] Turning all ego vehicle traffic lights to green (It will be always driving and not wasting time in red traffic lights)
+- [x] Added ROS argument to change the speed limit in the AutoPilot mode. check speed_limit_percent in [carla_ros_bridge_with_example_ego_vehicle.launch](https://github.com/ibrahim-kudan/ros-bridge/blob/aee83fcf0eea9aa07368c1c6d2b5909bf889717b/carla_ros_bridge/launch/carla_ros_bridge_with_example_ego_vehicle.launch#L7) 
+
 # ROS/ROS2 bridge for CARLA simulator
 
 [![Actions Status](https://github.com/carla-simulator/ros-bridge/workflows/CI/badge.svg)](https://github.com/carla-simulator/ros-bridge)
